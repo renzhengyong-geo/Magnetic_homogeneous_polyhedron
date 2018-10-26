@@ -1,0 +1,62 @@
+1. Compile the code
+cd test
+make m3d
+
+2. Run examples
+cd prism
+../m3d cube.node cube.ele site.dat
+cd pipeline
+../m3d pipeline.node pipeline.ele site.dat
+
+3. Plot results using matlab (higer version of matlab is needed)
+cd prism 
+run plot_profile.m
+cd pipeline
+run plot_contour.m
+
+4. files in package m3d
+src/------------------contains all source files
+test/m3d--------------the main program
+test/test_m3d.cpp-----main file to generate the m3d program
+test/makefile---------makefile to compile the package "m3d"
+test/prism   ---------prism example
+test/prism/cube.node--the input node file
+test/prism/cube.ele---the input element file
+test/prism/site.dat---the input observation site file
+test/prism/V.dat------the output magnetic potential file
+test/prism/B.dat------the output magnetic field file in unit of nT
+test/prism/T.dat------the output magnetic gradient tensor file in unit of nT/m
+test/prism/xyz.dat----the output coordinates of observation sites file
+test/prism/heath2005_results.dat---the closed-form solutions given by Heath et al.(2005, 
+                       Modelling gravity and magnetic gradient tensor responses for 
+                       exploration within the regolith: Exploration Geophysics, 36,
+                       357–364), in unit of nT/m
+test/prism/plot_profile.m ---matlab file to generate the figures of the draft
+
+test/pipeline   ---------pipeline example
+test/pipeline/pipeline.node--the input node file
+test/pipeline/pipeline.ele---the input element file
+test/pipeline/site.dat---the input observation site file
+test/pipeline/V.dat------the output magnetic potential file
+test/pipeline/B.dat------the output magnetic field file in unit of nT
+test/pipeline/T.dat------the output magnetic gradient tensor file in unit of nT/m
+test/pipeline/xyz.dat----the output coordinates of observation sites file 
+test/pipeline/plot_contour.m and test/pipeline/xyz2XYZ.m ---two matlab files to 
+                         generate the figures.
+5. format for input files
+5.1 node file and site file
+    the number of 3D points
+    each line is id, x, y, z
+5.2 element file
+    the number of elements
+    each line is element id, id of 4 nodes(id is defined in node file), magnetization vector M(Mx,My,Mz)
+    
+6. format for output file. Please see the main body of the article (section Implementation) 
+
+Zhengyong Ren
+Central south university, changsha, China
+renzhengyong@csu.edu.cn
+2017-02-26
+
+These files may be found in:
+http://software.seg.org/2017/0006
